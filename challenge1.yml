@@ -1,0 +1,13 @@
+---
+  - name: "Playbook learning challenge"
+    hosts: localhost
+
+    tasks:
+
+      - name: "test reachability"
+        ping:
+
+      - name: "display details of files in folder"
+        find:
+          paths: ~/workspace/devops/playbooks/challenge1
+          file_type: file

@@ -1,7 +1,7 @@
 ---
 - name: "Handlers example"
   hosts: logicalservers
-  serial: 1
+  strategy: free
 
   tasks:
 

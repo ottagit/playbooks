@@ -1,0 +1,15 @@
+---
+- hosts: logicalservers[0]
+
+  tasks:
+    - name: stop nginx
+      service:
+          name: nginx
+          state: stopped
+      notify:
+      - Stop nginx
+
+  handlers:
+    - name: Stop nginx
+      debug:
+        msg: "Called on stop change"

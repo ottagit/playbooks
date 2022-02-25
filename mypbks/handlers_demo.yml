@@ -1,0 +1,41 @@
+---
+- name: "Handlers example"
+  hosts: logicalservers
+  serial: 1
+
+  tasks:
+
+    - name: "Install nginx"
+      debug: 
+        msg: "Install nginx on {{ inventory_hostname }}"
+
+    - name: "Upgrade nginx"
+      debug:
+        msg: "Upgrade nginx on {{ inventory_hostname }}"
+
+    - name: "Stop nginx"
+      debug:
+        msg: "Stop {{ inventory_hostname }}"
+      notify:
+      - "stop nginx"
+      - changed_when: True
+
+    - name: "Configure nginx"
+      debug:
+        msg: "Start {{ inventory_hostname }}"
+      notify:
+      - "restart nginx"
+      - changed_when: True
+
+    - name: "Verify nginx"
+      debug:
+        msg: "Verify {{ inventory_hostname }}"
+      
+  handlers:
+    - name: "restart nginx"
+      debug:
+        msg: "Nginx restarted"
+
+    - name: "restart nginx"
+      debug:
+        msg: "Nginx restarted"
